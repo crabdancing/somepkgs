@@ -20,7 +20,7 @@
         self',
         ...
       }: {
-        packages.default = pkgs.buildGoModule {
+        packages.crx3 = pkgs.buildGoModule {
           pname = "go-crx3";
           version = "v1.5.1";
 
@@ -46,7 +46,7 @@
 
         apps.default = {
           type = "app";
-          program = self'.packages.default;
+          program = self'.packages.crx3;
         };
 
         devShells.default = pkgs.mkShell {
