@@ -41,11 +41,12 @@
             license = pkgs.lib.licenses.asl20;
             maintainers = with pkgs.lib.maintainers; [];
           };
+          meta.mainProgram = "crx3";
         };
 
         apps.default = {
           type = "app";
-          program = "${self'.packages.default}/bin/crx3";
+          program = self'.packages.default;
         };
 
         devShells.default = pkgs.mkShell {
