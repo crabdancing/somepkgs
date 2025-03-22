@@ -20,38 +20,7 @@
         self',
         ...
       }: {
-        packages.crx3 = pkgs.buildGoModule {
-          pname = "go-crx3";
-          version = "v1.5.1";
-
-          src = pkgs.fetchFromGitHub {
-            owner = "mmadfox";
-            repo = "go-crx3";
-            rev = "94c08009bbd26902aa352caa26b33726006b0707";
-            sha256 = "sha256-J3v3/Rz6rPTJnIEahWvJO6KGIC6idqJ/39wPC4zApbE=";
-          };
-
-          vendorHash = "sha256-LEIB/VZA3rqTeH9SesZ/jrfVddl6xtmoRWHP+RwGmCk=";
-
-          doCheck = false;
-
-          meta = {
-            description = "Tool to create Chrome CRX3 extensions";
-            homepage = "https://github.com/mmadfox/go-crx3";
-            license = pkgs.lib.licenses.asl20;
-            maintainers = with pkgs.lib.maintainers; [];
-          };
-          meta.mainProgram = "crx3";
-        };
-
-        apps.default = {
-          type = "app";
-          program = self'.packages.crx3;
-        };
-
-        devShells.default = pkgs.mkShell {
-          packages = [pkgs.go];
-        };
+        packages = pkgs.callPackages ./pkgs {};
       };
     };
 }

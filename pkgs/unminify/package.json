@@ -1,0 +1,47 @@
+{
+  "name": "unminify",
+  "version": "2.0.0",
+  "author": "Kevin Gibbons <kevin@shapesecurity.com>",
+  "description": "reverse many of the transformations applied by minifiers and naïve obfuscators",
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shapesecurity/unminify"
+  },
+  "main": "src/index.js",
+  "files": [
+    "src",
+    "bin"
+  ],
+  "bin": "bin/cli.js",
+  "scripts": {
+    "test": "ava --fail-fast --verbose",
+    "update-snapshots": "ava --update-snapshots",
+    "lint": "eslint src bin",
+    "build": "exit 0"
+  },
+  "ava": {
+    "files": [
+      "test/**/*.js",
+      "!test/snapshots-*/**/*.js"
+    ],
+    "snapshotDir": "test/snapshots-out",
+    "failFast": true,
+    "failWithoutAssertions": false
+  },
+  "dependencies": {
+    "command-line-args": "5.2.1",
+    "esutils": "2.0.3",
+    "prettier": "2.6.2",
+    "shift-ast": "7.0.0",
+    "shift-codegen": "8.0.0",
+    "shift-parser": "8.0.0",
+    "shift-reducer": "7.0.0",
+    "shift-scope": "6.0.0",
+    "shift-spec": "2019.0.0"
+  },
+  "devDependencies": {
+    "ava": "4.2.0",
+    "eslint": "8.15.0"
+  }
+}
