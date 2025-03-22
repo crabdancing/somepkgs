@@ -1,0 +1,1 @@
+Collecting random stuff into my own personal mini nixpkgs
